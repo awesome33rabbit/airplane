@@ -8,6 +8,9 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemy.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../Unity/c02_ShootingGame/Assets/Scripts/Player.cs" root0="FORCE_HIGHLIGHTING" />
@@ -70,7 +73,7 @@
       <option name="presentableId" value="Default" />
       <updated>1569657839516</updated>
       <workItem from="1569657849294" duration="3508000" />
-      <workItem from="1569662021149" duration="280000" />
+      <workItem from="1569662021149" duration="553000" />
     </task>
     <servers />
   </component>
