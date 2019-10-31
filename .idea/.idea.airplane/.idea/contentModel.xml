@@ -9,8 +9,11 @@
       <e p="Assets" t="Include">
         <e p="Scripts" t="Include">
           <e p="Enemy.cs" t="Include" />
+          <e p="EnemyRocket.cs" t="Include" />
+          <e p="EnemySpawn.cs" t="Include" />
           <e p="Player.cs" t="Include" />
           <e p="Rocket.cs" t="Include" />
+          <e p="SuperEnemy.cs" t="Include" />
         </e>
       </e>
       <e p="obj" t="ExcludeRecursive" />

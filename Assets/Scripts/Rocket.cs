@@ -20,7 +20,9 @@ public class Rocket : MonoBehaviour
     private void OnBecameInvisible()
     {
         if (this.enabled) // 通过判断是否处于激活状态防止重复删除
+        {
             Destroy(this.gameObject); // 当离开屏幕后销毁
+        }
     }
 
     // Update is called once per frame
@@ -28,5 +30,15 @@ public class Rocket : MonoBehaviour
     {
         // 向前（Z方向移动）
         transform.Translate(new Vector3(0, 0, m_speed * Time.deltaTime));
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag != "Enemy")
+        {
+            return;
+            Destroy(this.gameObject);
+        }
+        Destroy(this.gameObject);
     }
 }

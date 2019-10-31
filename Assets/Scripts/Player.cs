@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Collections;
@@ -7,8 +8,13 @@ using System.Collections;
 public class Player : MonoBehaviour
 {
     public float m_speed = 1;
+    public float m_life = 3;
 
     protected Transform m_transform;
+
+    public AudioClip m_shootClip;  // 声音文件
+    protected AudioSource m_audio;  // 声音源
+    public Transform m_explosionFX;  // 爆炸特效
     
     // 子弹 Prefab
     public Transform m_rocket;
@@ -20,6 +26,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         m_transform = this.transform;
+        m_audio = this.GetComponent<AudioSource>();  // 添加代码获取声音源文件
     }
 
     // Update is called once per frame
@@ -66,7 +73,25 @@ public class Player : MonoBehaviour
             if (Input.GetKey(KeyCode.Space) || Input.GetMouseButton(0))
             {
                 Instantiate(m_rocket, m_transform.position, m_transform.rotation);
+                
+                // 添加代码，播放一次射击声音
+                m_audio.PlayOneShot(m_shootClip);
             }
         }
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag != "PlayerRocket") // 如果与主角子弹以外的碰撞体相撞
+        {
+            m_life -= 1;
+            if (m_life <= 0)
+            {
+                // 添加代码，当生命为 0 后，播放爆炸特效
+                Instantiate(m_explosionFX, m_transform.position, Quaternion.identity);
+                Destroy(this.gameObject);
+            }
+        }
+    }
+    
 }
